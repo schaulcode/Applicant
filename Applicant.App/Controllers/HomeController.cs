@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobApplicant.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,14 +12,21 @@ namespace JobApplicant.App.Controllers
         public ActionResult List()
         {
 
-            return View();
+            return View(ModelBuilder.List());
         }
 
         public ActionResult New()
         {
-            ViewBag.Message = "Your application description page.";
+            
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult New(Applicant applicant)
+        {
+            ModelBuilder.Add(applicant);
+            return RedirectToAction("List");
         }
     }
 }

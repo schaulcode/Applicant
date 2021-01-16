@@ -9,9 +9,16 @@ namespace JobApplicant.App.Models
     public static class ModelBuilder
     {
         static DataBaseAccess DbAccess = new DataBaseAccess();
-        public static List<Applicant> List()
+        public static ListModel List()
         {
-            return DbAccess.List().Select(e => new Applicant(e)).ToList();
+            var applicants = DbAccess.List().Select(e => new Applicant(e)).ToList();
+            return new ListModel
+            {
+                Applicants = applicants,
+                TotalCount = applicants.Count,
+                EarliestStartDate = applicants.OrderBy(e => e.StartDate).First().StartDate,
+                LatestStartDate = applicants.OrderBy(e => e.StartDate).Last().StartDate
+            };
         }
         public static void Add(Applicant applicant)
         {
