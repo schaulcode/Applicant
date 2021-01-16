@@ -4,25 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Applicant.App.Controllers
+namespace JobApplicant.App.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult List()
         {
+
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult New()
         {
             ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }

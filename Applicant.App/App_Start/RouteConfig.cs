@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Applicant.App
+namespace JobApplicant.App
 {
     public class RouteConfig
     {

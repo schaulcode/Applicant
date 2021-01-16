@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Applicant.App
+namespace JobApplicant.App
 {
     public class BundleConfig
     {
