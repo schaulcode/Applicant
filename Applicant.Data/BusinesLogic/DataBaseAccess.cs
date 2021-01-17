@@ -15,10 +15,16 @@ namespace JobApplicant.Data.BusinesLogic
         public void Add(Applicant applicant)
         {
             db.Applicants.Add(applicant);
+            db.SaveChanges();
         }
         public List<Applicant> List()
         {
             return db.Applicants.ToList();
+        }
+        public void Delete(int id)
+        {
+            db.Applicants.Remove(db.Applicants.Find(id));
+            db.SaveChanges();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace JobApplicant.App.Models
 {
     public class ListModel
     {
-        public List<Applicant> Applicants { get; set; }
+        public List<Applicant> Applicants { get; set; } = new List<Applicant>();
         public int TotalCount { get; set; }
         public DateTime EarliestStartDate { get; set; }
         public DateTime LatestStartDate { get; set; }

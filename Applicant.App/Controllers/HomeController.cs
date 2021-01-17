@@ -28,5 +28,13 @@ namespace JobApplicant.App.Controllers
             ModelBuilder.Add(applicant);
             return RedirectToAction("List");
         }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            ModelBuilder.Delete(id);
+            return RedirectToAction("List");
+        }
     }
+    
 }

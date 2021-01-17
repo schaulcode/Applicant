@@ -8,6 +8,7 @@ namespace JobApplicant.App.Models
 {
     public class Applicant
     {
+        public int ID { get; set; }
         [Display(Name ="First Name")]
         [Required]
         public string FirstName { get; set; }
@@ -47,6 +48,7 @@ namespace JobApplicant.App.Models
         }
         public Applicant(Data.Model.Applicant applicant)
         {
+            this.ID = applicant.ID;
             this.FirstName = applicant.FirstName;
             this.LastName = applicant.LastName;
             this.Email = applicant.Email;
