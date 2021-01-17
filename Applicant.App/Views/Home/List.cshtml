@@ -1,0 +1,86 @@
+﻿@model JobApplicant.App.Models.ListModel
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().Address3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().Town)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().County)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().Postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicants.First().StartDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Applicants) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address1)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address2)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address3)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Town)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.County)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Postcode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StartDate)
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+}
+
+</table>
