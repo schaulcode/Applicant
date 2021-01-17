@@ -11,7 +11,7 @@ namespace JobApplicant.Data.BusinesLogic
 {
     public class DataBaseAccess
     {
-        ApplicantEntity db = new ApplicantEntity();
+        ApplicantDB db = new ApplicantDB();
         public void Add(Applicant applicant)
         {
             db.Applicants.Add(applicant);

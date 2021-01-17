@@ -8,7 +8,7 @@ using JobApplicant.Data.Model;
 
 namespace JobApplicant.Data.DatabaseEntity
 {
-    class ApplicantEntity : DbContext
+    class ApplicantDB : DbContext
     {
         public DbSet<Applicant> Applicants { get; set; }
     }

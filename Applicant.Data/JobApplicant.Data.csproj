@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinesLogic\DataBaseAccess.cs" />
-    <Compile Include="DatabaseEntity\ApplicantEntity.cs" />
+    <Compile Include="DatabaseEntity\ApplicantDB.cs" />
     <Compile Include="Model\Applicant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
