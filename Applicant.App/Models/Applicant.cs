@@ -9,37 +9,45 @@ namespace JobApplicant.App.Models
     public class Applicant
     {
         public int ID { get; set; }
-        [Display(Name ="First Name")]
+        [Display(Name = "First Name")]
         [Required]
         public string FirstName { get; set; }
-        [Display(Name ="Last Name")]
+        [Display(Name = "Last Name")]
         [Required]
         public string LastName { get; set; }
-        [Display(Name ="Email Address")]
+        [Display(Name = "Email Address")]
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [Display(Name ="Address Line 1")]
+        [Display(Name = "Address Line 1")]
         public string Address1 { get; set; }
-        [Display(Name ="Address Line 2")]
+        [Display(Name = "Address Line 2")]
         public string Address2 { get; set; }
-        [Display(Name ="Address Line 3")]
+        [Display(Name = "Address Line 3")]
         public string Address3 { get; set; }
         [Required]
         public string Town { get; set; }
         [Required]
         public string County { get; set; }
         [Required]
+        [DataType(DataType.PostalCode)]
+        [RegularExpression(@"^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})$", ErrorMessage = "This is not a valid UK Postcode format")]
         public string Postcode { get; set; }
         [Required]
-        [Display(Name ="Moblie Phone")]
+        [Display(Name = "Mobile Phone")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^0(\d{10})$", ErrorMessage ="This is not a valid Mobile Number format")]
         public string MobilePhone { get; set; }
         [Required]
         [Display(Name ="Home Phone")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^0(\d{9,10})$", ErrorMessage = "This is not a valid Home Number format")]
         public string HomePhone { get; set; }
         [Required]
         [Display(Name ="Start Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime StartDate { get; set; }
         [Display(Name ="Address")]
         public string FormatedAddress { get; set; }
