@@ -29,7 +29,7 @@ namespace JobApplicant.App.Controllers
             return RedirectToAction("List");
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             ModelBuilder.Delete(id);

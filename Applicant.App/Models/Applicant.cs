@@ -41,6 +41,8 @@ namespace JobApplicant.App.Models
         [Required]
         [Display(Name ="Start Date")]
         public DateTime StartDate { get; set; }
+        [Display(Name ="Address")]
+        public string FormatedAddress { get; set; }
 
         public Applicant()
         {
@@ -61,6 +63,7 @@ namespace JobApplicant.App.Models
             this.MobilePhone = applicant.MobilePhone;
             this.HomePhone = applicant.HomePhone;
             this.StartDate = applicant.StartDate;
+            this.FormatedAddress = applicant.Address1 + "\n" + ((!String.IsNullOrEmpty(applicant.Address2)) ? applicant.Address2 + "\n" : "") + ((!String.IsNullOrEmpty(applicant.Address3)) ? applicant.Address3 + "\n" : "") + applicant.Town + "\n" + applicant.County + "\n" + applicant.Poscode;
         }
 
         public static Data.Model.Applicant Reverse(Applicant applicant)

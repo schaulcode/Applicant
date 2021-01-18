@@ -22,3 +22,8 @@ select,
 textarea {
     max-width: 280px;
 }
+pre{
+    font-family: inherit;
+    font-size: inherit;
+    margin: inherit;
+}
