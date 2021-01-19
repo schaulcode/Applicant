@@ -18,14 +18,14 @@
         <dd class="">@Html.DisplayFor(model => model.LatestStartDate)</dd>
     </dl>
 </div>
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover" data-toggle="table">
     <thead class="thead-dark">
-        
+
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Applicants.First().FirstName)
             </th>
-            <th>
+            <th id="lastName" data-sortable="true">
                 @Html.DisplayNameFor(model => model.Applicants.First().LastName)
             </th>
             <th>
@@ -35,82 +35,89 @@
                 @Html.DisplayNameFor(model => model.Applicants.First().FormatedAddress)
             </th>
             @*<th>
-            @Html.DisplayNameFor(model => model.Applicants.First().Address2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicants.First().Address3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicants.First().Town)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicants.First().County)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicants.First().Postcode)
-        </th>*@
+                    @Html.DisplayNameFor(model => model.Applicants.First().Address2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Applicants.First().Address3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Applicants.First().Town)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Applicants.First().County)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Applicants.First().Postcode)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Applicants.First().MobilePhone)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Applicants.First().HomePhone)
             </th>
-            <th>
+            <th id="startDate" data-sortable="true">
                 @Html.DisplayNameFor(model => model.Applicants.First().StartDate)
             </th>
 
             <th></th>
         </tr>
-        </thead>
+    </thead>
 
     <tbody>
         @foreach (var item in Model.Applicants)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.Address1) <br /> @Html.DisplayFor(modelItem => item.Address2) <br /> @Html.DisplayFor(modelItem => item.Address3) <br /> @Html.DisplayFor(modelItem => item.Town) <br />  @Html.DisplayFor(modelItem => item.County) <br /> @Html.DisplayFor(modelItem => item.Postcode)
-        </td>*@
-            <td>
-                <pre>@Html.DisplayFor(modelItem => item.FormatedAddress)</pre>
-            </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.Address2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Town)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Postcode)
-        </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.MobilePhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HomePhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Address1) <br /> @Html.DisplayFor(modelItem => item.Address2) <br /> @Html.DisplayFor(modelItem => item.Address3) <br /> @Html.DisplayFor(modelItem => item.Town) <br />  @Html.DisplayFor(modelItem => item.County) <br /> @Html.DisplayFor(modelItem => item.Postcode)
+                    </td>*@
+                <td>
+                    <pre>@Html.DisplayFor(modelItem => item.FormatedAddress)</pre>
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Address2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Town)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.County)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Postcode)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobilePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { id="delete", @class = "btn btn-danger",
+                   onclick ="return confirm('Are you sure you want to delete this item?')" })
+                </td>
+            </tr>
         }
     </tbody>
 
 </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        
+    </script>
+}
