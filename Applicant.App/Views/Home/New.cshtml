@@ -45,62 +45,79 @@
                 <span class="font-weight-bold">Address:</span>
             </div>
             <div class="col">
-                <div class="form-row">
-                    <div class="col-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "" })
-                            <div class="">
-                                @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+                <div id="postcode_lookup">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label>Enter a Postcode</label>
+                            <input id="postcode_search" class="form-control" type="text" value="" />
+                        </div>
+                        <div class="form-group col">
+                            <label>House Number</label>
+                            <input id="housenumber_search" class="form-control" type="text" value="" />
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" id="find_address">Find Address</button>
+                    <p><a id="manually" href="#">Enter address manually</a></p>
+                </div>
+                <div id="manual_address">
+                    <div class="form-row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address3, htmlAttributes: new { @class = "" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Address3, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Address3, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "" })
-                            <div class="">
-                                @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                        <div class="col-12">
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    @Html.LabelFor(model => model.Town, htmlAttributes: new { @class = "" })
+                                    <div class="">
+                                        @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Town, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Address3, htmlAttributes: new { @class = "" })
-                            <div class="">
-                                @Html.EditorFor(model => model.Address3, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Address3, "", new { @class = "text-danger" })
+                                <div class="form-group col">
+                                    @Html.LabelFor(model => model.County, htmlAttributes: new { @class = "" })
+                                    <div class="">
+                                        @Html.EditorFor(model => model.County, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "" })
+                                    <div class="">
+                                        @Html.EditorFor(model => model.Postcode, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-12">
-                        <div class="form-row">
-                            <div class="form-group col">
-                                @Html.LabelFor(model => model.Town, htmlAttributes: new { @class = "" })
-                                <div class="">
-                                    @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Town, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group col">
-                                @Html.LabelFor(model => model.County, htmlAttributes: new { @class = "" })
-                                <div class="">
-                                    @Html.EditorFor(model => model.County, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-6">
-                                @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "" })
-                                <div class="">
-                                    @Html.EditorFor(model => model.Postcode, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <p><a id="automatic" href="#">Enter a postcode</a></p>
                 </div>
             </div>
         </div>
@@ -158,7 +175,7 @@
         <div class="form-row">
             <div class="form-group col-3">
                 <div class="col-md-10">
-                    <input type="submit" value="Add" class="btn btn-secondary" />
+                    <input type="submit" value="Add" class="btn btn-primary" />
                 </div>
             </div>
         </div>
@@ -167,9 +184,67 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "List", new { }, new { @class="btn btn-primary"})
+    @Html.ActionLink("Back to List", "List", new { }, new { @class="btn btn-secondary"})
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $("#manual_address").hide()
+
+        $("#find_address").click(function (e) {
+            e.preventDefault();
+            $("#address_select").remove()
+            var house_number = $("#housenumber_search").val();
+            var postcode = $("#postcode_search").val();
+            $(this).text("Fetching Addresses...")
+            $.get(`https://api.getAddress.io/find/${postcode}/${house_number}?api-key=VHJJhIzhEEWfMTaom3QLyg29794&expand=true`, function (response) {
+                if (response.addresses.length == 1) {
+                    var address = response.addresses[0]
+                    $("#Address1").val(address.line_1)
+                    $("#Address2").val(address.line_2)
+                    $("#Address3").val(address.line_3)
+                    $("#Town").val(address.town_or_city)
+                    $("#Postcode").val(postcode)
+                    $("#County").val(address.county)
+                    $("#manual_address").show()
+                    $("#postcode_lookup").hide()
+                } else {
+                    var newElement = "<select id='address_select' class='form-control mb-4'><option selected>Please choose an address...</option>"
+                    for (var i = 0; i < response.addresses.length; i++) {
+                        newElement += `<option value=${i}>${response.addresses[i].formatted_address}</option>`
+                    }
+                    newElement += "</select>"
+                    $("#postcode_lookup").append(newElement)
+                    $("#address_select").change(function (e) {
+                        var address = response.addresses[this.value]
+                        var address = response.addresses[0]
+                        $("#Address1").val(address.line_1)
+                        $("#Address2").val(address.line_2)
+                        $("#Address3").val(address.line_3)
+                        $("#Town").val(address.town_or_city)
+                        $("#Postcode").val(postcode)
+                        $("#County").val(address.county)
+                        $("#address_select").remove()
+                        $("#manual_address").show()
+                        $("#postcode_lookup").hide()
+                    })
+                }
+
+                $("#find_address").text("Find Address")
+
+            }, "json")
+        })
+
+        $("#manually").click(function (e) {
+            e.preventDefault();
+            $("#manual_address").show()
+            $("#postcode_lookup").hide()
+        })
+        $("#automatic").click(function (e) {
+            e.preventDefault();
+            $("#manual_address").hide()
+            $("#postcode_lookup").show()
+        })
+    </script>
 }

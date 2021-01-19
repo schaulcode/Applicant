@@ -28,3 +28,9 @@ pre{
     margin: inherit;
     color: inherit;
 }
+
+@media (max-width: 992px){
+    .w-50{
+        width: 100% !important;
+    }
+}

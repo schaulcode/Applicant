@@ -28,7 +28,6 @@ namespace JobApplicant.App.Models
         public string Address3 { get; set; }
         [Required]
         public string Town { get; set; }
-        [Required]
         public string County { get; set; }
         [Required]
         [DataType(DataType.PostalCode)]
