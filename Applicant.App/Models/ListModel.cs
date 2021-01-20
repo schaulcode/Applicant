@@ -15,6 +15,7 @@ namespace JobApplicant.App.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime EarliestStartDate { get; set; }
+        [Display(Name = "Latest Start Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime LatestStartDate { get; set; }

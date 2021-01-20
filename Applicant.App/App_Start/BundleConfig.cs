@@ -20,7 +20,7 @@ namespace JobApplicant.App
                         "~/Scripts/modernizr-*"));
             bundles.Add(new ScriptBundle("~/bundles/postcode_lookup").Include(
                         "~/Scripts/postcode_lookup.js",
-                        "~/Scripts/toogle_address_fields.js"));
+                        "~/Scripts/toogle_address-fields.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));

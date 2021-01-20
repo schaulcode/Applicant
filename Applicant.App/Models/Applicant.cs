@@ -43,7 +43,6 @@ namespace JobApplicant.App.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^0(\d{9,10})$", ErrorMessage = "This is not a valid Home Number format")]
         public string HomePhone { get; set; }
-        [Required]
         [Display(Name ="Start Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
