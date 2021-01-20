@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using JobApplicant.App.HelperLibary;
 
 namespace JobApplicant.App.Models
 {
@@ -38,11 +39,12 @@ namespace JobApplicant.App.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^0(\d{10})$", ErrorMessage ="This is not a valid Mobile Number format")]
         public string MobilePhone { get; set; }
-        [Required]
         [Display(Name ="Home Phone")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^0(\d{9,10})$", ErrorMessage = "This is not a valid Home Number format")]
         public string HomePhone { get; set; }
+        [Required]
+        [DateRange(ErrorMessage = "The Start Date must be between Today and {2:dd/MM/yyyy}")]
         [Display(Name ="Start Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]

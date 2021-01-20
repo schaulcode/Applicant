@@ -25,6 +25,9 @@ namespace JobApplicant.App.Controllers
         [HttpPost]
         public ActionResult New(Applicant applicant)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             ModelBuilder.Add(applicant);
             return RedirectToAction("List");
         }
