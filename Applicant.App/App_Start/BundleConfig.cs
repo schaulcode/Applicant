@@ -18,6 +18,9 @@ namespace JobApplicant.App
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/postcode_lookup").Include(
+                        "~/Scripts/postcode_lookup.js",
+                        "~/Scripts/toogle_address_fields.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));

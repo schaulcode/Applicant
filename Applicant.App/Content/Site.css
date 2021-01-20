@@ -29,6 +29,7 @@ pre{
     color: inherit;
 }
 
+/*Remove width when viewport becomes smaller*/
 @media (max-width: 992px){
     .w-50{
         width: 100% !important;
